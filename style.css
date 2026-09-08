@@ -1,0 +1,351 @@
+/* --- YUMUŞAK KAYDIRMA (SMOOTH SCROLLING) --- */
+html { scroll-behavior: smooth; }
+
+/* --- VARIABLES --- */
+:root {
+    --bg-base: #F7F5F0; 
+    --bg-tint: #EBE6DF; 
+    --text-dark: #2A2421; 
+    --accent-dark: #3A2A27; 
+    --accent-warm: #6B3B32; 
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; }
+
+/* --- NAVIGATION (YAPIŞKAN & CAM EFEKTLİ) --- */
+.navbar {
+    position: fixed; 
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 30px 5%;
+    z-index: 100;
+    transition: all 0.3s ease; 
+}
+
+.navbar.scrolled {
+    background: rgba(247, 245, 240, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 5%; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* SOL KISIM STİLLERİ & CEPTEN ÇIKAN LOGO ANİMASYONU */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 600;
+    color: var(--accent-dark);
+    text-decoration: none;
+    letter-spacing: 1px;
+    
+    max-width: 0; 
+    opacity: 0;
+    overflow: hidden; 
+    white-space: nowrap; 
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.navbar.scrolled .nav-logo {
+    max-width: 150px; 
+    opacity: 1;
+    margin-right: clamp(10px, 1.5vw, 20px); 
+}
+
+.nav-socials {
+    display: flex;
+    gap: clamp(10px, 1vw, 15px); 
+    align-items: center;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled .nav-socials {
+    border-left: 1px solid rgba(42, 36, 33, 0.2);
+    padding-left: clamp(10px, 1.5vw, 20px);
+}
+
+.nav-socials a {
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.nav-socials a:hover { color: var(--accent-warm); }
+
+.nav-socials svg {
+    width: clamp(24px, 2vw, 30px);
+    height: clamp(24px, 2vw, 30px);
+    transition: stroke 0.3s ease;
+}
+
+/* SAĞ KISIM STİLLERİ */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: clamp(15px, 2.5vw, 40px); 
+}
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: clamp(15px, 2vw, 35px); 
+    align-items: center; 
+}
+
+.nav-links a {
+    text-decoration: none; color: var(--text-dark);
+    font-size: clamp(13px, 1.2vw, 17px); 
+    text-transform: uppercase;
+    letter-spacing: 1px; transition: color 0.3s ease;
+    white-space: nowrap; 
+}
+
+.nav-links a:hover { color: var(--accent-warm); }
+
+.lang-switcher { 
+    font-size: clamp(13px, 1.1vw, 16px); 
+    font-weight: 500; 
+    white-space: nowrap; 
+}
+.lang-switcher a { color: #a09995; transition: color 0.3s ease; text-decoration: none; }
+.lang-switcher a.active, .lang-switcher a:hover { color: var(--text-dark); font-weight: 600; }
+
+/* --- BUTTONS --- */
+.btn-solid {
+    display: inline-block; padding: 14px 32px; text-decoration: none;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px;
+    transition: all 0.3s ease; background-color: var(--accent-dark);
+    color: var(--bg-base); border: 1px solid var(--accent-dark);
+    white-space: nowrap;
+}
+.btn-solid:hover { background-color: transparent; color: var(--accent-dark); }
+
+/* --- HERO SECTION (TAM EKRAN KAPAK) --- */
+.hero {
+    position: relative;
+    min-height: 100vh; 
+    background-image: url('profil.jpg'); 
+    background-size: cover; 
+    background-position: center left; 
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    padding: 130px 5% 40px 5%;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+    width: 100%; 
+    max-width: 550px;
+    text-align: left;
+    margin-top: 0; 
+}
+
+.hero-content::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    bottom: -100vh;
+    left: -150px;
+    right: -50vw;
+    background: linear-gradient(to right, transparent 0%, rgba(247, 245, 240, 0.95) 150px, rgba(247, 245, 240, 1) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-logo-large {
+    font-family: var(--font-display); 
+    font-size: clamp(28px, 3vw, 36px); 
+    font-weight: 600;
+    margin-bottom: 15px; 
+    color: var(--accent-dark);
+}
+
+.subtitle {
+    display: block; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 3px; margin-bottom: 25px; color: var(--accent-warm);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); 
+    font-weight: 400; 
+    line-height: 1.25; 
+    margin-bottom: 30px; 
+    color: var(--accent-dark);
+}
+
+.hero p { 
+    font-size: 1.1rem; 
+    line-height: 1.7;
+    margin-bottom: 40px; 
+    color: var(--accent-dark); 
+}
+
+/* --- SECTIONS --- */
+.section { padding: 100px 5%; }
+.bg-tint { background-color: var(--bg-tint); }
+.section-title { font-size: clamp(2rem, 4vw, 3rem); text-align: center; max-width: 800px; margin: 0 auto 60px auto; line-height: 1.2; }
+
+/* --- PHILOSOPHY GRID --- */
+.philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.phil-card { background: white; padding: 50px 40px; border: 1px solid #E2D9CF; text-align: center; }
+.dark-card { background-color: var(--accent-dark); color: var(--bg-base); border: none; }
+.phil-card h3 { font-size: 2rem; margin-bottom: 20px; }
+
+/* --- BENTO GRID AESTHETIC --- */
+.bento-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.bento-box { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.text-box { grid-column: 1 / -1; background-color: white; }
+@media (min-width: 1025px) {
+    .bento-container { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; }
+    .text-box { grid-column: 1 / 2; grid-row: 1 / 3; }
+}
+.text-box h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+.image-placeholder { display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-style: italic; min-height: 250px; }
+.dark-bg { background-color: var(--accent-dark); color: white; }
+.light-bg { background-color: #E2D9CF; }
+.highlight-box { background-color: var(--accent-warm); color: white; }
+.highlight-box h3 { font-size: 1.8rem; margin-bottom: 10px; }
+
+/* --- BLOG SECTION (INSIGHTS) --- */
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.blog-card { background: transparent; border-top: 2px solid var(--accent-dark); padding: 20px 0; display: flex; flex-direction: column; }
+.blog-date { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-warm); margin-bottom: 15px; }
+
+.blog-excerpt { 
+    font-family: var(--font-body); 
+    font-size: 1.05rem; 
+    font-weight: 300; 
+    margin-bottom: 20px; 
+    flex-grow: 1; 
+    line-height: 1.7;
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.blog-excerpt p {
+    margin-bottom: 12px;
+}
+
+.blog-excerpt p:last-child {
+    margin-bottom: 0;
+}
+
+/* Takvim alanını koruyan sınır ve yumuşak solma */
+.blog-excerpt.collapsed {
+    max-height: 130px;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.blog-excerpt.expanded {
+    max-height: 1500px;
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+.blog-link { 
+    text-decoration: none; 
+    color: var(--accent-dark); 
+    font-weight: 600; 
+    font-size: 13px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    transition: opacity 0.3s ease; 
+    cursor: pointer;
+    margin-top: auto;
+}
+.blog-link:hover { opacity: 0.6; }
+
+/* --- BOOKING SECTION --- */
+.booking-section { text-align: center; }
+.booking-container { max-width: 800px; margin: 0 auto; padding: 60px; border: 1px solid var(--accent-dark); }
+.booking-container h2 { font-size: 2.5rem; margin-bottom: 15px; }
+.booking-note { font-style: italic; color: var(--accent-warm); margin-bottom: 40px; }
+.calendar-wrapper { background: white; padding: 40px; min-height: 300px; display: flex; align-items: center; justify-content: center; }
+
+/* --- FOOTER --- */
+footer { border-top: 1px solid #E2D9CF; padding: 40px 5%; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 20px;}
+.footer-brand { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+.footer-socials a { text-decoration: none; color: var(--text-dark); margin-left: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- MOBİL UYUMLULUK KORUMASI --- */
+@media (max-width: 1024px) {
+    .navbar { flex-direction: column; padding: 20px; background: var(--bg-base); gap: 15px; }
+    .nav-left { width: 100%; justify-content: space-between; border-bottom: 1px solid #E2D9CF; padding-bottom: 15px; }
+    .nav-logo { max-width: 150px; opacity: 1; margin-right: 0; } 
+    .nav-socials { border-left: none; padding-left: 0; }
+    .navbar.scrolled .nav-socials { border-left: none; padding-left: 0; }
+    .nav-controls { flex-direction: column; gap: 15px; }
+    
+    .hero { min-height: 70vh; align-items: center; background-position: center; padding-top: 150px; }
+    
+    .hero-content::before {
+        left: -100vw;
+        right: -100vw;
+        background: rgba(247, 245, 240, 0.85);
+    }
+    
+    .hero-content { max-width: 100%; text-align: center; padding: 20px; margin-top: 0; }
+    .hero-logo-large { display: none; } 
+    
+    .section-title { margin-bottom: 40px; }
+    .bento-box { min-height: 200px; padding: 30px 20px; }
+    .booking-container { padding: 30px 15px; }
+    .footer-content { flex-direction: column; gap: 20px; justify-content: center; text-align: center;}
+    .footer-socials a { margin: 0 10px; }
+}
+
+/* --- YENİ BENTO KUTULARI İÇİN METİN DÜZENİ --- */
+.custom-bento-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.custom-bento-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.custom-bento-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Light background kutunun metin rengini ayarlar */
+.light-bg.custom-bento-content {
+    color: var(--accent-dark);
+}
