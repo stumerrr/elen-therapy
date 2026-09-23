@@ -13,7 +13,6 @@
 </head>
 <body>
 
-    <!-- YAPIŞKAN HEADER -->
     <nav class="navbar" id="navbar">
         <div class="nav-left">
             <a href="#" class="nav-logo">Elen Oz</a>
@@ -29,9 +28,10 @@
 
         <div class="nav-controls">
             <ul class="nav-links">
-                <li><a href="#philosophy" data-i18n="nav-philosophy">Философия</a></li>
-                <li><a href="#method" data-i18n="nav-method">Метод</a></li>
-                <li><a href="#booking" data-i18n="nav-book">Записаться</a></li>
+                <li><a href="#who-for" data-i18n="nav-who">Для кого</a></li>
+                <li><a href="#process" data-i18n="nav-process">Как проходит</a></li>
+                <li><a href="#about" data-i18n="nav-about">Обо мне</a></li>
+                <li><a href="#booking" class="btn-book-nav" data-i18n="nav-book">Записаться</a></li>
             </ul>
             <div class="lang-switcher">
                 <a href="#" id="btn-en">EN</a> | 
@@ -41,103 +41,97 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-logo-large">Elen Oz</div>
-            <span class="subtitle" data-i18n="hero-subtitle">Терапевт состояний & Личный коуч</span>
+            <span class="subtitle" data-i18n="hero-subtitle">ЭЛЕН ОЗКЫЛЫЧ | ТЕРАПЕВТ СОСТОЯНИЙ</span>
             <h1 data-i18n="hero-title">Выйдите из петли автоматических реакций.</h1>
-            <p data-i18n="hero-desc">Перестаньте жить в режиме «Дня сурка». Терапия, которая помогает выйти из выживания в осознанную жизнь.</p>
-            <a href="#booking" class="btn-solid" data-i18n="hero-btn">Начать путь</a>
+            <p data-i18n="hero-desc">Если прошло уже время, а боль всё ещё не отпускает — на встрече вы получите поддержку, ясность и первые шаги, которые помогут снова почувствовать опору под ногами.</p>
+            <a href="#booking" class="btn-solid" data-i18n="hero-btn">Записаться бесплатно</a>
+            <span class="hero-subtext" data-i18n="hero-subtext">Бережная конфиденциальная встреча в онлайн-формате (30-40 минут)</span>
         </div>
     </header>
 
-    <!-- PHILOSOPHY SECTION -->
-    <section id="philosophy" class="section">
-        <h2 class="section-title" data-i18n="phil-title">Почему жизнь снова приводит вас в одну и ту же точку?</h2>
+    <section id="who-for" class="section">
+        <h2 class="section-title" data-i18n="who-title">Персональная демо-сессия для вас, если вы:</h2>
         <div class="philosophy-grid">
             <div class="phil-card">
-                <h3 data-i18n="phil-card1-title">Симптом</h3>
-                <p data-i18n="phil-card1-desc">Эмоциональное истощение и бег по кругу — это не корень проблемы, а сигналы системы.</p>
+                <p data-i18n="who-card-1">После утраты, развода или тяжёлых жизненных перемен прошло уже время, но вы не можете вернуться к полноценной жизни.</p>
             </div>
             <div class="phil-card dark-card">
-                <h3 data-i18n="phil-card2-title">Анализ</h3>
-                <p data-i18n="phil-card2-desc">Мы смотрим глубже поверхности. Исследуем не просто реакцию, а состояние и убеждения за ней.</p>
+                <p data-i18n="who-card-2">Вы просыпаетесь, выполняете привычные дела, но внутри все кажется пустым и бессмысленным.</p>
             </div>
             <div class="phil-card">
-                <h3 data-i18n="phil-card3-title">Выход</h3>
-                <p data-i18n="phil-card3-desc">Создаем новую внутреннюю опору — ресурс, который возвращает контроль над решениями.</p>
+                <p data-i18n="who-card-3">Каждый день похож на предыдущий, а ощущение, что жизнь проходит мимо, становится все сильнее.</p>
             </div>
+            <div class="phil-card light-bg custom-bento-content">
+                <p data-i18n="who-card-4">Вам кажется, что пора двигаться дальше, но вы не можете понять, почему не получается.</p>
+            </div>
+        </div>
+        <div class="section-btn-container">
+            <a href="#booking" class="btn-solid" data-i18n="section-btn">Записаться</a>
         </div>
     </section>
 
-    <!-- BENTO GRID SECTION (GÜNCELLENDİ) -->
-    <section id="method" class="section bg-tint">
-        <div class="bento-container">
-            <div class="bento-box text-box">
-                <h2 data-i18n="method-title">Мой подход</h2>
-                <p data-i18n="method-desc">Глубокая терапевтическая работа, сочетающая разбор автоматических реакций с поиском персональной внутренней опоры.</p>
+    <section id="process" class="section bg-tint">
+        <h2 class="section-title" data-i18n="process-title">Как будет проходить демо-сессия</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <span class="step-num">01</span>
+                <p data-i18n="step-1-desc">Выберем удобное время для встречи — всё проходит онлайн в Zoom.</p>
             </div>
-            <!-- YENİ KUTU 1: İçsel Dayanak -->
-            <div class="bento-box dark-bg custom-bento-content">
-                <h3 data-i18n="bento-box1-title">Внутренняя опора</h3>
-                <p data-i18n="bento-box1-desc">Обретите равновесие, которое останется с вами навсегда.</p>
+            <div class="process-card">
+                <span class="step-num">02</span>
+                <p data-i18n="step-2-desc">Определим, что именно забирает ваши силы сегодня и удерживает вас в состоянии, из которого не получается выбраться.</p>
             </div>
-            <div class="bento-box highlight-box custom-bento-content">
-                <h3 data-i18n="method-box-title">Терапия состояний</h3>
-                <p data-i18n="method-box-desc">Структурная, глубинная и меняющая качество жизни.</p>
+            <div class="process-card">
+                <span class="step-num">03</span>
+                <p data-i18n="step-3-desc">Увидим, к какому состоянию и жизни вы действительно хотите прийти.</p>
             </div>
-            <!-- YENİ KUTU 2: Güvenli Alan -->
-            <div class="bento-box light-bg custom-bento-content">
-                <h3 data-i18n="bento-box2-title">Безопасное пространство</h3>
-                <p data-i18n="bento-box2-desc">Без осуждения. Без шаблонов. Только глубокая работа.</p>
+            <div class="process-card">
+                <span class="step-num">04</span>
+                <p data-i18n="step-4-desc">Составим понятный план первых шагов из текущего состояния к тому, в котором вы хотите жить.</p>
             </div>
+            <div class="process-card">
+                <span class="step-num">05</span>
+                <p data-i18n="step-5-desc">Получите практический инструмент самопомощи для моментов тревоги, боли и внутреннего напряжения.</p>
+            </div>
+            <div class="process-card dark-card">
+                <span class="step-num">06</span>
+                <p data-i18n="step-6-desc">Если совпадём по ценностям — предложим форматы дальнейшей работы.</p>
+            </div>
+        </div>
+        <div class="process-footer-text">
+            <p data-i18n="process-footer">В конце демо-сессии у вас будет больше ясности, понимание своей ситуации и направление, в котором двигаться дальше.</p>
+        </div>
+        <div class="section-btn-container">
+            <a href="#booking" class="btn-solid" data-i18n="section-btn-free">Бесплатно</a>
         </div>
     </section>
 
-    <!-- LATEST INSIGHTS -->
-    <section id="blog" class="section">
-        <h2 class="section-title" data-i18n="blog-title">Последние инсайты</h2>
-        <div class="blog-grid" id="insights-list">
+    <section id="about" class="section">
+        <div class="about-container">
+            <h2 class="section-title" data-i18n="about-title">Кто я и чем могу быть вам полезна</h2>
+            <p class="about-text" data-i18n="about-text-1">Меня зовут Элен Озкылыч. Я знаю, что такое переживать тяжелые жизненные кризисы не только как специалист, но и как человек. В моей жизни были абьюзивные отношения, болезненный развод, а в прошлом году я пережила утрату мужа и осталась одна с тремя несовершеннолетними детьми.</p>
+            <p class="about-text" data-i18n="about-text-2">Я знаю, как выглядит состояние, когда внутри боль, пустота, растерянность и кажется, что жизнь остановилась. Сегодня я помогаю людям обрести внутреннюю опору и постепенно вернуться к жизни, в которой снова появляются силы, желания и смысл.</p>
             
-            <!-- 14 Temmuz -->
-            <article class="blog-card">
-                <div class="blog-date" data-i18n="post1-date">14 Июля</div>
-                <div class="blog-excerpt collapsed" data-i18n-html="post1-body">
-                    <p>Представьте врача, который всю жизнь лечит симптомы, но никогда не задается вопросом, почему болезнь вообще появилась.</p>
-                    <p>Именно эта мысль неожиданно пришла ко мне на випассане...</p>
-                </div>
-                <a href="#" class="blog-link blog-toggle"><span data-i18n="read-more">Читать дальше →</span></a>
-            </article>
+            <ul class="credentials-list">
+                <li data-i18n="cred-1">+ Диплом по ПСИХОЛОГИИ</li>
+                <li data-i18n="cred-2">+ Сертифицированный КОУЧ ICF</li>
+                <li data-i18n="cred-3">+ Специалист по эмоциональному иммунитету</li>
+                <li data-i18n="cred-4">+ Сертифицированный учитель ЙОГИ</li>
+                <li data-i18n="cred-5">+ Тренер личностного роста</li>
+            </ul>
 
-            <!-- 13 Temmuz -->
-            <article class="blog-card">
-                <div class="blog-date" data-i18n="post2-date">13 Июля</div>
-                <div class="blog-excerpt collapsed" data-i18n-html="post2-body">
-                    <p>Сегодня на сессии был очень интересный момент. Ко мне пришла женщина, которая работает с людьми. В какой-то момент она начала бояться своей собственной работы.</p>
-                    <p>Сначала могло показаться, что проблема именно в страхе...</p>
-                </div>
-                <a href="#" class="blog-link blog-toggle"><span data-i18n="read-more">Читать дальше →</span></a>
-            </article>
-
-            <!-- 11 Temmuz -->
-            <article class="blog-card">
-                <div class="blog-date" data-i18n="post3-date">11 Июля</div>
-                <div class="blog-excerpt collapsed" data-i18n-html="post3-body">
-                    <p>Иногда мне кажется, что человек приходит не тогда, когда готов меняться. А тогда, когда больше не может жить по-старому. За последние месяцы я много думала об этом.</p>
-                    <p>Почему один человек годами терпит, хотя ему больно...</p>
-                </div>
-                <a href="#" class="blog-link blog-toggle"><span data-i18n="read-more">Читать дальше →</span></a>
-            </article>
-
+            <div class="section-btn-container" style="margin-top: 40px;">
+                <a href="#booking" class="btn-solid" data-i18n="about-btn">Записаться</a>
+            </div>
         </div>
     </section>
 
-    <!-- BOOKING SECTION (Cal.com Takvimi) -->
-    <section id="booking" class="section booking-section">
+    <section id="booking" class="section booking-section bg-tint">
         <div class="booking-container">
-            <h2 data-i18n="book-title">Записаться на консультацию</h2>
-            <p class="booking-note" data-i18n="book-note">Начните свой путь к осознанности. Все сессии требуют предварительного подтверждения.</p>
+            <h2 data-i18n="book-title">Прошло уже время, но внутри по-прежнему пусто, тяжело и кажется, что ничего не меняется. Это не значит, что так будет всегда!</h2>
+            <p class="booking-note" data-i18n="book-note">Запишитесь на бесплатную демо-сессию и получите ясность, почему вы застряли в этой точке, а также понимание первых шагов к состоянию, в котором снова появляются силы.</p>
             
             <div class="calendar-wrapper">
                 <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
@@ -159,7 +153,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand" data-i18n="footer-brand">Elen Oz | Терапевт состояний</div>
